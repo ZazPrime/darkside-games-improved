@@ -1,0 +1,63 @@
+{% comment %}
+  Header Section
+{% endcomment %}
+<header class="site-header">
+  <div class="page-width">
+    <div class="header__content">
+      <div class="header__logo">
+        {% if section.settings.logo %}
+          <a href="/">
+            <img src="{{ section.settings.logo | image_url: width: 200 }}"
+                 alt="{{ shop.name }}"
+                 loading="lazy">
+          </a>
+        {% else %}
+          <a href="/" class="header__logo-text">
+            {{ section.settings.logo_text | default: shop.name }}
+          </a>
+        {% endif %}
+      </div>
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          {% for link in linklists.main-menu.links %}
+            <li class="header__nav-item">
+              <a href="{{ link.url }}" class="header__nav-link">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="/search" class="header__search">
+          <span class="visually-hidden">Search</span>
+          🔍
+        </a>
+        <a href="/cart" class="header__cart">
+          <span class="visually-hidden">Cart</span>
+          🛒 <span class="cart-count">{{ cart.item_count }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text",
+      "default": "Darkside Games",
+      "info": "Used if no logo image is set"
+    }
+  ]
+}
+{% endschema %}

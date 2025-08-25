@@ -1,0 +1,26 @@
+{% comment %}
+  Customer Wishlist Section
+{% endcomment %}
+
+<section class="wishlist-section">
+  <div class="page-width">
+    <h2>Your Wishlist</h2>
+    <div id="wishlist-container">
+      <!-- Wishlist items populated by JavaScript -->
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Customer Wishlist",
+  "settings": [
+    {
+      "type": "text", 
+      "id": "heading",
+      "default": "Your Wishlist",
+      "label": "Heading"
+    }
+  ]
+}
+{% endschema %}

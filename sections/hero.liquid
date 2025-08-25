@@ -1,0 +1,53 @@
+{% comment %}
+  Hero Banner Section
+{% endcomment %}
+<section class="hero-banner">
+  <div class="page-width">
+    <div class="hero__content">
+      <h1 class="hero__heading">{{ section.settings.heading | default: "Welcome to" }} {{ shop.name }}</h1>
+      <p class="hero__subheading">{{ section.settings.subheading | default: "Discover amazing gaming products and accessories." }}</p>
+      {% if section.settings.button_text != blank %}
+        <a href="{{ section.settings.button_link | default: "/collections/all" }}" class="btn btn--primary">
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome to Our Store"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Discover amazing gaming products and accessories."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+  ]
+}
+{% endschema %}

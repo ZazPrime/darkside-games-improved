@@ -1,0 +1,19 @@
+{% comment %}
+  Wishlist Heart Icon
+  Usage: {% render "wishlist-heart", product: product %}
+{% endcomment %}
+
+<button class="wishlist-heart" 
+        data-product-handle="{{ product.handle }}"
+        data-product-title="{{ product.title | escape }}"
+        data-product-image="{{ product.featured_image | image_url: width: 300 }}"
+        data-product-price="{{ product.price | money_without_currency }}"
+        data-product-vendor="{{ product.vendor | escape }}"
+        aria-label="Add to wishlist">
+  <svg class="wishlist-heart-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+  </svg>
+  <svg class="wishlist-heart-icon wishlist-heart-filled" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+  </svg>
+</button>
